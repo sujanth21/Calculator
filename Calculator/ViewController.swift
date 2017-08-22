@@ -47,13 +47,34 @@ class ViewController: UIViewController {
     }
     
     @IBAction func cancelBtnPressed(_ sender: Any) {
+        displayValue = 0
     }
     
     
-    @IBAction func calculateBtnPressed(_ sender: Any) {
+    @IBAction func calculateBtnPressed(_ sender: AnyObject) {
+        
+        switch operation2 {
+            
+        case "+":
+            displayValue += operation1
+        case "-":
+            displayValue = operation1 - displayValue
+        case "*":
+            displayValue *= operation1
+        case "/":
+            displayValue = operation1 / displayValue
+        default:
+            break
+        }
+        
     }
     
-    @IBAction func operationBtnPressed(_ sender: Any) {
+    @IBAction func operationBtnPressed(_ sender: AnyObject) {
+        
+        operation2 = sender.currentTitle!!
+        operation1 = displayValue
+        isFirstDigit = true
+        
     }
     
     
